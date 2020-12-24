@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach version="1.0" author="who3411" description="TFTP Defaults(referred to defaults.xml)">
+	<!-- Location of Peach -->
+    <!--
+	<PythonPath path="Pits/Targets"/>
+    <PythonPath path="tftp"/>
+	-->
+
+	<!-- The usual imports for Peach modules -->
+	<Import import="Peach" />
+	<Import from="Peach" import="logger" />
+	<Import from="Peach.Mutators" import="*" />
+	<Import from="Peach.Generators.dictionary" import="*" />
+	<Import from="Peach.Generators.data" import="*" />
+	<Import from="Peach.Generators.static" import="*" />
+	<Import from="Peach.Generators.block" import="*" />
+	<Import from="Peach.Generators.incrementor" import="*" />
+	<Import from="Peach.Generators.repeater" import="*" />
+	<Import from="Peach.Generators" import="*" />
+	<Import from="Peach.Transformers" import="*" />
+	<Import from="Peach.Fixups" import="*" />
+	<Import from="Peach.Publishers" import="*" />
+	<Import from="Peach.publisher" import="*" />
+	<Import from="Peach.MutateStrategies" import="*" />
+
+    <!--
+    <Import from="Tftp.tftp" import="*"/>
+    <Import from="Tftp.filelist" import="*"/>
+    -->
+    <Import from="Tftp" import="*"/>
+
+	<!-- Default set of mutators to use. -->
+	<Mutators>
+		<Mutator class="number.NumericalEdgeCaseMutator" />
+		<Mutator class="number.NumericalVarianceMutator" />
+		<Mutator class="number.FiniteRandomNumbersMutator" />
+		
+		<Mutator class="blob.BlobMutator" />
+		<Mutator class="blob.BitFlipperMutator" />
+		<Mutator class="blob.DWORDSliderMutator" />
+		
+		<Mutator class="datatree.DataTreeRemoveMutator" />
+		<Mutator class="datatree.DataTreeDuplicateMutator" />
+		<Mutator class="datatree.DataTreeSwapNearNodesMutator" />
+		
+		<Mutator class="array.ArrayVarianceMutator" />
+		<Mutator class="array.ArrayNumericalEdgeCasesMutator" />
+		<Mutator class="array.ArrayReverseOrderMutator" />
+		<Mutator class="array.ArrayRandomizeOrderMutator" />
+		
+		<Mutator class="size.SizedVarianceMutator" />
+		<Mutator class="size.SizedNumericalEdgeCasesMutator" />
+		
+		<Mutator class="string.StringMutator" /> 
+		<Mutator class="string.XmlW3CMutator"/>
+		<Mutator class="string.PathMutator"/>
+		<Mutator class="string.HostnameMutator"/>
+		<Mutator class="string.FilenameMutator"/>
+		<Mutator class="string.StringCaseMutator" />
+		<Mutator class="string.UnicodeBomMutator" />
+		<Mutator class="string.UnicodeStringsMutator" />
+		<Mutator class="string.UnicodeBadUtf8Mutator" />
+		<Mutator class="string.UnicodeUtf8ThreeCharMutator" />
+		<Mutator class="string.ValidValuesMutator" />
+
+		<Mutator class="filelist.DownloadFileListMutator" />
+		<Mutator class="filelist.UploadFileListMutator" />
+	</Mutators>
+
+</Peach>

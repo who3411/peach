@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Peach version="1.0"  author="who3411" description="curl HttpRequestHeader">
+    <!-- StateModel要素 -->
+    <StateModel name="TftpClient" initialState="TftpClientRequests">
+        <State name="TftpClientRequests">
+            <Action type="output">
+                <DataModel ref="GetCommand"/>
+            </Action>
+            <Action type="output">
+                <DataModel ref="PutCommand"/>
+            </Action>
+            <Action type="output">
+                <DataModel ref="OtherCommand"/>
+            </Action>
+        </State>
+    </StateModel>
+
+    <!-- Test要素 -->
+    <Test name="DefaultTest">
+        <StateModel ref="TftpClient"/>
+        <Publisher class="tftp.Tftp">
+            <Param name="host" value="localhost"/>
+            <Param name="port" value="23456"/>
+        </Publisher>
+        <Strategy class="rand.RandomMutationStrategy" params="MaxFieldsToMutate=3"/>
+    </Test>
+
+    <!-- Run要素 -->
+    <Run name="DefaultRun" description="Run (Tftp)">
+        <Test ref="DefaultTest"/>
+        <Logger class="logger.Filesystem">
+            <Param name="path" value="Logs/Tftp"/>
+        </Logger>
+    </Run>
+</Peach>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Peach version="1.0"  author="who3411" description="Tftp Client DataModels">
+    <!-- Include要素 -->
+    <Include ns="default" src="file:../../Tftp/defaults-tftp.xml"/>
+
+    <!-- DataModel要素 -->
+    <DataModel name="GetCommand">
+		<Number name="opcode" size="16" value="1" signed="false" endian="big"/>
+		<String name="filename" value="0123.html">
+			<Hint name="type" value="downloadfilelist"/>
+			<Hint name="type" value="filename"/>
+		</String>
+		<String name="mode" value="octet"/>
+    </DataModel>
+
+    <DataModel name="PutCommand">
+		<Number name="opcode" size="16" value="2" signed="false" endian="big"/>
+		<String name="filename" value="0123.html">
+			<Hint name="type" value="uploadfilelist"/>
+			<Hint name="type" value="filename"/>
+		</String>
+		<String name="mode" value="octet"/>
+    </DataModel>
+
+    <DataModel name="OtherCommand">
+		<Number name="opcode" size="16" value="0" signed="false" endian="big"/>
+		<String name="filename" value="0123.html">
+			<Hint name="type" value="downloadfilelist"/>
+			<Hint name="type" value="uploadfilelist"/>
+			<Hint name="type" value="filename"/>
+		</String>
+		<String name="mode" value="octet"/>
+    </DataModel>
+</Peach>
